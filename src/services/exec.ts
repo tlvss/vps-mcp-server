@@ -18,7 +18,7 @@ export async function runCommand(
     const { stdout, stderr } = await execAsync(command, {
       cwd,
       timeout: 60000,
-      maxBuffer: 1024 * 1024 * 10,
+      maxBuffer: 1024 * 1024 * 10, // 10MB
     });
     return { stdout: stdout.trim(), stderr: stderr.trim(), success: true };
   } catch (error: unknown) {

@@ -1,0 +1,26 @@
+{
+  "_comment": "Add this to your ~/.claude.json under 'mcpServers', or use 'claude mcp add' CLI.",
+  "_instructions": [
+    "1. Run vps-mcp-setup.sh on the VPS first — it will print the real auth token.",
+    "2. Replace REPLACE_WITH_TOKEN_FROM_SETUP_SCRIPT below with the printed token.",
+    "3. The SSH tunnel config tells Claude Code to forward port 3841 automatically.",
+    "4. Claude Code will establish the SSH tunnel before connecting to the MCP server."
+  ],
+  "mcpServers": {
+    "vps-0841eec7": {
+      "type": "http",
+      "url": "http://127.0.0.1:3841/mcp",
+      "headers": {
+        "Authorization": "Bearer REPLACE_WITH_TOKEN_FROM_SETUP_SCRIPT"
+      },
+      "tunnel": {
+        "type": "ssh",
+        "host": "135.125.179.131",
+        "user": "ubuntu",
+        "localPort": 3841,
+        "remotePort": 3841,
+        "identityFile": "~/.ssh/id_rsa"
+      }
+    }
+  }
+}
